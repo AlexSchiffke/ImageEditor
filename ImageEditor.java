@@ -5,10 +5,20 @@ import java.awt.image.*;
 import java.io.*; 
 import javax.imageio.*;  
 
-public class ImageEditorFrame extends JFrame{    
-	public ImageEditorFrame(){       
+public class ImageEditor extends JFrame{    
+	public ImageEditor(){       
+		setTitle("ImageEditor");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);       
 		setSize(400,  300);       
-		setVisible(true);    
+		setVisible(true);
+		panel = new ImageEditorPanel();
+		add(panel);
 	} 
+	private void setDummyImage(){
+		BufferedImage bufferedImage = new BufferedImage(400, 300, BufferedImage.TYPE INT RGB);
+		Graphics g = bufferedImage.getGraphics();
+		g.setColor(Color.YELLOW);
+		g.fillOval(10, 10, 380, 280);
+		panel.setImage(bufferedImage);
+	}
 } 
